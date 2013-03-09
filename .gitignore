@@ -8,3 +8,8 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Libraries #
+##############
+/css/libs/*
+/js/libs/*

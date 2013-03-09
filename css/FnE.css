@@ -1,0 +1,22 @@
+/* Animation Classes */
+.FnE_AnimateAll {
+	-webkit-transition-property : all;
+	-moz-transition-property : all;
+	-o-transition-property : all;
+	-ms-transition-property : all;
+	transition-property : all;
+}
+
+.FnE_AnimateNone {
+	-webkit-transition-property : none !important;
+	-moz-transition-property : none !important;
+	-o-transition-property : none !important;
+	-ms-transition-property : none !important;
+	transition-property : none !important;
+	
+	-webkit-transition-duration: 0s !important;
+	-moz-transition-duration: 0s !important;
+	-o-transition-duration: 0s !important;
+	-ms-transition-duration: 0s !important;
+	transition-duration: 0s !important;
+}
