@@ -46,7 +46,6 @@ img {
 #topLevelNavigation {
 	position: absolute;
 	height: 100%;
-	font-size: 35px;
 }
 
 #topLevelNavigation ul {
@@ -60,7 +59,7 @@ img {
 	color: #3f5fa7;
 	/*height: 25%;*/
 	cursor: pointer;
-	display: none;
+	opacity: 0.0;
 }
 
 #topLevelNavigation li img {

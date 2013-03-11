@@ -31,7 +31,7 @@ $(function() {
 			.onPosition(function(windowWidth, windowHeight) {
 				var logo = pForm.element("#logo");
 				this.left(logo.left() + 2)
-					.height(logo.top() - 15)
+					.height(logo.top() - 5)
 					.css("border-width", 4 * (logo.width() / 640));
 				if (logo.top() <= 3) {
 					this.hide();
@@ -42,20 +42,37 @@ $(function() {
 			})
 	);
 
+
+	// each li in topLevelNavigation
+	pForm.addElement( 
+		new FnE.Element("#topLevelNavigation li")
+			.onPosition(function(windowWidth, windowHeight) {
+				this.fontSize( Math.min( Math.max(windowWidth * 0.03225806451, 35), 40))
+				.css("line-height", (this.fontSize() * 1.618) + "px");
+			})
+	);
+
+	// topLevelNavigation
+	pForm.addElement(
+		new FnE.Element("#topLevelNavigation")
+			.onPosition(function(windowWidth, windowHeight) {
+				var logo = pForm.element("#logo");
+				this.top(windowHeight - (windowHeight * 0.375))
+					.left(logo.left() + (logo.width() - this.width()));
+			})
+	);
+
 	// clickArrow
 	pForm.addElement(
 		new FnE.Element("#clickArrow")
 			.onPosition(function(windowWidth, windowHeight) {
 				var logo = pForm.element("#logo");
-				this.top(windowHeight - (windowHeight * 0.375))
-					.width(Math.max(60 * (logo.width() / 640), 30));
+				var navigation = pForm.element("#topLevelNavigation");
+				this.top(navigation.top())
+					.width(Math.max(60 * (logo.width() / 640), 34));
 
-				if (hiscores.arrowExpanded) {
-					// this.left(logo.left() + logo.width() - this.width() - navigation.fontSize() * 5);
-				}
-				else {
-					this.left(logo.left() + 10);
-				}
+				this.left(logo.left() + 10);
+				
 			})
 			.onHover(
 				//mouseenter
@@ -72,8 +89,9 @@ $(function() {
 			.onClick(function() {
 				var logo = pForm.element("#logo");
 				var navigation = pForm.element("#topLevelNavigation");
-				var $navigationLinks = navigation.jquery().find("li");
-
+				var navigationLinks = pForm.element("#topLevelNavigation li");
+				navigationLinks.animate(true);
+				var $navigationLinks = navigationLinks.jquery();
 				hiscores.arrowExpanded = true;
 
 				this.animationDuration(1000)
@@ -81,49 +99,38 @@ $(function() {
 					.removeEventHandlers()
 					.runAnimation([
 						function() {
-							this.left(logo.left() + logo.width() - this.width() - navigation.fontSize() * 4);
+							this.left(navigation.left() - this.width());
 							// you know something has gone wrong when you're using jquery's slice
 							// I'm hardcoding in that there are 4 links in the navigation
 							// and I want to reveal each one by one.
 							// This is also harcoded into the moveDown factor.
+							$navigationLinks.slice(0,1).css('opacity',1.0);
 						},
 						function() {
 							this.animationDuration(1000)
 								.animationTimingFunction("easeOutCubic")
 								.moveDown($navigationLinks.slice(0,1).height());
-							$navigationLinks.slice(0,1).show();
+							$navigationLinks.slice(1,2).css('opacity',1.0);
 						},
 						function() {
 							this.moveDown($navigationLinks.slice(1,2).height());
-							$navigationLinks.slice(1,2).show();
+							$navigationLinks.slice(2,3).css('opacity',1.0);
 						},
 						function() {
 							this.moveDown($navigationLinks.slice(2,3).height());
-							$navigationLinks.slice(2,3).show();
+							$navigationLinks.slice(3).css('opacity',1.0);
 						},
 						function() {
 							this.moveDown(navigation.height());
-							$navigationLinks.slice(3).show();
 						},
 						function() {
 							this.hide();
+							navigationLinks.animate(false);
 						}
 					]);		
 			})
 	);
 
-	// topLevelNavigation
-	pForm.addElement(
-		new FnE.Element("#topLevelNavigation")
-			.onPosition(function(windowWidth, windowHeight) {
-				var logo = pForm.element("#logo");
-				var clickArrow = pForm.element("#clickArrow");
-				this.top(clickArrow.top() - 10)
-					.fontSize( Math.min( Math.max(windowWidth * 0.032, 35), 40) )
-					.left(logo.left() + logo.width() - this.fontSize() * 5)
-					.height(windowHeight - clickArrow.top() - 15);
-			})
-	);
 
 	// bottomLeftBar
 	pForm.addElement(
@@ -133,7 +140,7 @@ $(function() {
 				var topLeftBar = pForm.element("#topLeftBar");
 				this.left(logo.left())
 					.css("border-width", 4 * (logo.width() / 640))
-					.top(logo.top() + logo.height())
+					.top(logo.top() + logo.height() + 5)
 					.height(windowHeight - this.top() - 2);
 			})
 	);

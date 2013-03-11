@@ -63,9 +63,18 @@ var FnE = function() {
 	 * Represents an item on the page (img, p, ul, svg, etc).
 	 * Can manipulate position, dimensions, and animation
 	 */
-	function Element (selector) {
-		this._selector = selector;
-		this._jquery = $(selector);
+	function Element (jquery, selector) {
+
+		// one argument : string that is a jquery selector
+		if (typeof jquery === "string") {
+			this._selector = jquery;
+			this._jquery = $(jquery);
+		}
+		// otherwise, a jquery object and a string for id
+		else {
+			this._jquery = jquery;
+			this._selector = selector;
+		}
 	}
 
 	Element.prototype = {
