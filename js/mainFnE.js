@@ -14,18 +14,14 @@ $(function() {
 	pForm.addElement(
 		new FnE.Element("#logo")
 			.onPosition(function(windowWidth, windowHeight) {
-				// if (windowWidth >= windowHeight) {
-					// set proportions based on width
-					this.left(windowWidth * 0.05)
-						.width( Math.min( Math.max(windowWidth * 0.35, 336), 448) )
-						.top(Math.max((windowHeight * 0.375 - 200), 0));
-				// }
-				// else {
-				// 	// set proportions based on height
-				// 	this.left(windowWidth * 0.05)
-				// 		.height( Math.min( Math.max(windowHeight * 0.35, 64), 84) )
-				// 		.top(Math.max((windowHeight * 0.375 - 200), 0));
-				// }
+				this.left(windowWidth * 0.05)
+					.width( Math.min( Math.max(windowWidth * 0.35, 336), 448) )
+					.top(Math.max((windowHeight * 0.375 - 200), 0));
+
+				if (windowWidth < this.width()) {
+					this.width(windowWidth);
+					this.left(0);
+				}
 			})
 	);
 
