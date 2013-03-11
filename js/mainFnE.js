@@ -35,8 +35,8 @@ $(function() {
 			.onPosition(function(windowWidth, windowHeight) {
 				var logo = pForm.element("#logo");
 				this.left(logo.left() + 2)
-					.height(logo.top() - 20)
-					.css("border-width", 4);
+					.height(logo.top() - 15)
+					.css("border-width", 4 * (logo.width() / 640));
 				if (logo.top() <= 3) {
 					this.hide();
 				}
@@ -123,7 +123,7 @@ $(function() {
 				var logo = pForm.element("#logo");
 				var clickArrow = pForm.element("#clickArrow");
 				this.top(clickArrow.top() - 10)
-					// .fontSize(Math.max(windowWidth * (45 / (640 / 0.275)), 20))
+					.fontSize( Math.min( Math.max(windowWidth * 0.032, 35), 40) )
 					.left(logo.left() + logo.width() - this.fontSize() * 5)
 					.height(windowHeight - clickArrow.top() - 15);
 			})
@@ -137,7 +137,7 @@ $(function() {
 				var topLeftBar = pForm.element("#topLeftBar");
 				this.left(logo.left())
 					.css("border-width", 4 * (logo.width() / 640))
-					.top(logo.top() + logo.height() + 5)
+					.top(logo.top() + logo.height())
 					.height(windowHeight - this.top() - 2);
 			})
 	);
