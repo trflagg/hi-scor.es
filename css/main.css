@@ -11,9 +11,14 @@ body {
 	background: black;
 	/*background: rgb(52,55,51);*/
 	color: #FFF;
-	overflow: hidden !important;
 }
 
+#content {
+	overflow: hidden !important;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
 
 #logo {
 	/*position: absolute;*/
