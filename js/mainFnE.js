@@ -14,9 +14,18 @@ $(function() {
 	pForm.addElement(
 		new FnE.Element("#logo")
 			.onPosition(function(windowWidth, windowHeight) {
-				this.left(windowWidth * 0.05)
-					.width(Math.max(windowWidth * 0.275, 350))
-					.top(Math.max((windowHeight * 0.375 - 200), 0));
+				if (windowWidth >= windowHeight) {
+					// set proportions based on width
+					this.left(windowWidth * 0.05)
+						.width( Math.min( Math.max(windowWidth * 0.35, 336), 448) )
+						.top(Math.max((windowHeight * 0.375 - 200), 0));
+				}
+				// else {
+				// 	// set proportions based on height
+				// 	this.left(windowWidth * 0.05)
+				// 		.height( Math.min( Math.max(windowHeight * 0.35, 64), 84) )
+				// 		.top(Math.max((windowHeight * 0.375 - 200), 0));
+				// }
 			})
 	);
 
@@ -27,7 +36,7 @@ $(function() {
 				var logo = pForm.element("#logo");
 				this.left(logo.left() + 2)
 					.height(logo.top() - 20)
-					.css("border-width", windowWidth * (4 / (640 / 0.275)));
+					.css("border-width", 4);
 				if (logo.top() <= 3) {
 					this.hide();
 				}
@@ -43,10 +52,10 @@ $(function() {
 			.onPosition(function(windowWidth, windowHeight) {
 				var logo = pForm.element("#logo");
 				this.top(windowHeight - (windowHeight * 0.375))
-					.width(Math.max(windowWidth * (60 / (640 / 0.275)), 40));
+					.width(Math.max(60 * (logo.width() / 640), 30));
 
 				if (hiscores.arrowExpanded) {
-					this.left(logo.left() + logo.width() - this.width() - navigation.fontSize() * 5);
+					// this.left(logo.left() + logo.width() - this.width() - navigation.fontSize() * 5);
 				}
 				else {
 					this.left(logo.left() + 10);
@@ -114,7 +123,7 @@ $(function() {
 				var logo = pForm.element("#logo");
 				var clickArrow = pForm.element("#clickArrow");
 				this.top(clickArrow.top() - 10)
-					.fontSize(Math.max(windowWidth * (45 / (640 / 0.275)), 20))
+					// .fontSize(Math.max(windowWidth * (45 / (640 / 0.275)), 20))
 					.left(logo.left() + logo.width() - this.fontSize() * 5)
 					.height(windowHeight - clickArrow.top() - 15);
 			})
@@ -127,7 +136,7 @@ $(function() {
 				var logo = pForm.element("#logo");
 				var topLeftBar = pForm.element("#topLeftBar");
 				this.left(logo.left())
-					.css("border-width", topLeftBar.css("border-width"))
+					.css("border-width", 4 * (logo.width() / 640))
 					.top(logo.top() + logo.height() + 5)
 					.height(windowHeight - this.top() - 2);
 			})

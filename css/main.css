@@ -1,3 +1,10 @@
+/* locally hosting the font*/
+@font-face {
+	font-family: 'Days One';
+	src: url(fonts/DaysOne-Regular.ttf);
+
+}
+
 body {
 	background: black;
 	/*background: rgb(52,55,51);*/
@@ -39,6 +46,7 @@ img {
 #topLevelNavigation {
 	position: absolute;
 	height: 100%;
+	font-size: 35px;
 }
 
 #topLevelNavigation ul {
@@ -53,4 +61,9 @@ img {
 	/*height: 25%;*/
 	cursor: pointer;
 	display: none;
+}
+
+#topLevelNavigation li img {
+	width: auto;
+	height: 50px;
 }
