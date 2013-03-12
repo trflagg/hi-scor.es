@@ -5,8 +5,7 @@
 
 }
 
-html, body { height: 100%; width: 100%; margin: 0; 
- min-width:1024px;}
+html, body { height: 100%; width: 100%; margin: 0; }
 
 body {
 	background: black;
@@ -26,9 +25,24 @@ body {
 	/*position: absolute;*/
 	/*left: 10px;*/
 	margin-left: 5%;
-	width: 30%;
+	/*width: 30%;*/
 	height: auto;
 }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 890px) {
+	#logo {
+		width: 60% !important;
+	}
+}
+
+/* landscape iPhone and less */
+@media (max-width: 480px) { 
+	#logo {
+		width: 80% !important;
+	}
+}
+
 
 
 .bar {
@@ -46,11 +60,37 @@ body {
 	border-bottom-right-radius: 6px;
 }
 
+@media (max-height: 500px) {
+	#topLeftBar {
+		height: 0;
+
+	}
+}
 #bottomLeftBar {
 	height: 100%;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 	float: left;
+}
+
+#spacerDiv {
+	height: 40%;
+}
+
+
+@media (max-height: 600px) {
+	#spacerDiv {
+		height: 40%;
+
+	}
+}
+
+
+@media (max-height: 360px) {
+	#spacerDiv {
+		height: 0;
+
+	}
 }
 
 #clickArrow {
@@ -59,20 +99,44 @@ body {
 }
 
 #topLevelNavigation {
-	position: absolute;
+	/*position: absolute;*/
+	/*margin-left: 5%;*/
 	height: 100%;
+	float: left;
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 890px) {
+	#topLevelNavigation {
+		margin-left: 5%;
+		width: 55%;
+	}
+}
+@media (max-width: 767px) {
+	#topLevelNavigation {
+	}
+}
+
+/* landscape iPhone and less */
+@media (max-width: 480px) { 
+	#topLevelNavigation {
+		width: 70%;
+	}
 }
 
 #topLevelNavigation ul {
 	list-style-type: none;
 	height: 100%;
 	text-align: right;
+	width: 100%;
 }
 
 #topLevelNavigation li {
 	font-family: 'Days One';
 	color: #3f5fa7;
-	/*height: 25%;*/
+	font-size: 30px;
+	padding-bottom:20px;
 	cursor: pointer;
 	/*opacity: 0.0;*/
 }
+
