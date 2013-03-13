@@ -83,6 +83,10 @@ var FnE = function() {
 		_animated : false,
 		_duration : null,
 		_timingFunction : null,
+		_animatingProperty : null,
+		_animatedValue : null,
+		_nextAnimationFrame : null,
+		_animationTimer : null,
 
 		_hoverHandlerIn : null,
 		_hoverHandlerOut : null,
@@ -132,6 +136,26 @@ var FnE = function() {
 		isAnimated : function() {
 			return this._animated;
 		},
+		animateProperty : function(propertyName, value) {
+			this._jquery.css("-webkit-transition-property", propertyName);
+			this._jquery.css("-moz-transition-property", propertyName);
+			this._jquery.css("-o-transition-property", propertyName);
+			this._jquery.css("-ms-transition-property", propertyName);
+			this._jquery.css("transition-property", propertyName);
+			this._animated = true;
+			this._animatingProperty = propertyName;
+			this._animatedValue = value;
+			this.css(propertyName, value);
+
+			//set timer so we guarantee animation frames complete
+			if(this._nextAnimationFrame) {
+				var thisElement = this;
+				this._animationTimer = window.setTimeout(this._nextAnimationFrame, this._duration + 200);
+			}
+
+			return this;
+		},
+
 		runFrame : function(frame) {
 			// for now, frames are just functions.
 			// Running a frame is just running it
@@ -148,16 +172,23 @@ var FnE = function() {
 			// every time a frame finishes
 			// call a function that increments the counter 
 			// and calls the next frame.
-			this._jquery.on('transitionend webkitTransitionEnd oTransitionEnd otransitionend', function() {
+			this._nextAnimationFrame = function() {
+				if (thisElement._animationTimer) {
+					window.clearTimeout(thisElement._animationTimer);
+					thisElement._animationTimer = null;
+				}
 				if (thisElement._currentFrame < thisElement._frames.length) {
 					thisElement._currentFrame++;
 					thisElement.runFrame(thisElement._frames[thisElement._currentFrame]);
 				}
 				else {
 					// done. 
-					this.animate(false);
+					thisElement.animate(false);
+					//destroy self?
+					thisElement._nextAnimationFrame = null;
 				}
-			});
+			};
+			this._jquery.on('transitionend webkitTransitionEnd oTransitionEnd otransitionend', this._nextAnimationFrame);
 
 			// call first frame to kick it off.
 			this.runFrame(this._frames[this._currentFrame]);

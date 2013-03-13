@@ -44,13 +44,10 @@ $(function() {
 
 
 	// each li in topLevelNavigation
-	pForm.addElement( 
-		new FnE.Element("#topLevelNavigation li")
-			.onPosition(function(windowWidth, windowHeight) {
-				this.fontSize( Math.min( Math.max(windowWidth * 0.03225806451, 35), 40))
-				.css("line-height", (this.fontSize() * 1.618) + "px");
-			})
-	);
+	pForm.registerSelector("#topLevelNavigation li");
+	// pForm.addElement( 
+		// new FnE.Element("#topLevelNavigation li")
+	// );
 
 	// topLevelNavigation
 	pForm.addElement(
@@ -66,12 +63,15 @@ $(function() {
 	pForm.addElement(
 		new FnE.Element("#clickArrow")
 			.onPosition(function(windowWidth, windowHeight) {
-				var logo = pForm.element("#logo");
-				var navigation = pForm.element("#topLevelNavigation");
-				this.top(navigation.top())
-					.width(Math.max(60 * (logo.width() / 640), 34));
+				if (!hiscores.arrowExpanded) {
+					var logo = pForm.element("#logo");
+					var navigation = pForm.element("#topLevelNavigation");
+					this.top(navigation.top() - 15)
+						.width(Math.max(60 * (logo.width() / 640), 34));
 
-				this.left(logo.left() + 10);
+					this.left(logo.left() + 10);
+
+				}
 				
 			})
 			.onHover(
@@ -90,41 +90,49 @@ $(function() {
 				var logo = pForm.element("#logo");
 				var navigation = pForm.element("#topLevelNavigation");
 				var navigationLinks = pForm.element("#topLevelNavigation li");
-				navigationLinks.animate(true);
+				navigationLinks.animate(true).animationTimingFunction("ease-in");
 				var $navigationLinks = navigationLinks.jquery();
 				hiscores.arrowExpanded = true;
+				var linkHeight = $navigationLinks.height();
+				var paddingHeight = parseInt($navigationLinks.css("padding-bottom"),10);
+				var arrowMoveDownBy = linkHeight + paddingHeight;
+
 
 				this.animationDuration(1000)
-					.animationTimingFunction("easeInOutCubic")
 					.removeEventHandlers()
 					.runAnimation([
 						function() {
 							this.left(navigation.left() - this.width());
-							// you know something has gone wrong when you're using jquery's slice
-							// I'm hardcoding in that there are 4 links in the navigation
-							// and I want to reveal each one by one.
-							// This is also harcoded into the moveDown factor.
 							$navigationLinks.slice(0,1).css('opacity',1.0);
+							// you know something has gone wrong when you're using jquery's slice
+							// in this case I'm hardcoding in that there are 4 links in the navigation
+							// so I can reveal them one by one.
 						},
 						function() {
-							this.animationDuration(1000)
-								.animationTimingFunction("easeOutCubic")
-								.moveDown($navigationLinks.slice(0,1).height());
 							$navigationLinks.slice(1,2).css('opacity',1.0);
+
+							// firefox has a jitterie-ness to the arrow movements. 
+							// I've tried everything I can think of to fix it.
+							// I'm gonna blame it on this bug: 
+							// https://support.mozilla.org/en-US/questions/949378
+							this.animateProperty("top", "+="+arrowMoveDownBy);
 						},
 						function() {
-							this.moveDown($navigationLinks.slice(1,2).height());
 							$navigationLinks.slice(2,3).css('opacity',1.0);
+							this.animateProperty("top", "+="+arrowMoveDownBy);
 						},
 						function() {
-							this.moveDown($navigationLinks.slice(2,3).height());
 							$navigationLinks.slice(3).css('opacity',1.0);
+							this.animateProperty("top", "+="+arrowMoveDownBy);
 						},
 						function() {
-							this.moveDown(navigation.height());
+							$(".outerFrame").css("overflow", "hidden");
+							this.animateProperty("top", "+="+Math.min(500, $(window).height()) );
 						},
 						function() {
 							this.hide();
+							$(".outerFrame").css("overflow", "auto");
+
 							navigationLinks.animate(false);
 						}
 					]);		
@@ -141,7 +149,7 @@ $(function() {
 				this.left(logo.left())
 					.css("border-width", 4 * (logo.width() / 640))
 					.top(logo.top() + logo.height() + 5)
-					.height(windowHeight - this.top() - 2);
+					.height(windowHeight - this.top() - 5);
 			})
 	);
 

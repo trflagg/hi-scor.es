@@ -9,24 +9,21 @@ body {
 	background: black;
 	/*background: rgb(52,55,51);*/
 	color: #FFF;
-}
-
-.outerFrame {
-	overflow: auto;
+	overflow: hidden;
 }
 
 img {
-	max-width: 100%;
 }
 
 #logo {
-	position: absolute;
-	left: 10px;
+	/*position: absolute;*/
+	/*left: 10px;*/
+	margin-left: 5%;
+	width: 20%;
+	height: auto;
 }
 
 .bar {
-	position: absolute;
-	width: 0;
 	border-style: solid;
 	border-color: #3f5fa7;
 	border-width: 0px;
@@ -35,23 +32,24 @@ img {
 #topLeftBar {
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
+	border-left-width: 5px;
+	width: 4px;
+	margin-left: 5%;
+	height: 20%;
 }
 
 #bottomLeftBar {
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
+	float: left;
 }
 
 #clickArrow {
-	position: absolute;
-}
-
-#clickArrow:active {
-	;
 }
 
 #topLevelNavigation {
 	position: absolute;
+	height: 100%;
 }
 
 #topLevelNavigation ul {
@@ -63,8 +61,7 @@ img {
 #topLevelNavigation li {
 	font-family: 'Days One';
 	color: #3f5fa7;
-	font-size: 30px;
-	padding-bottom: 20px;
+	/*height: 25%;*/
 	cursor: pointer;
 	opacity: 0.0;
 }
