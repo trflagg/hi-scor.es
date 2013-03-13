@@ -22,23 +22,23 @@ $(function() {
 	);
 
 	// each li in topLevelNavigation
-	// pForm.addElement( 
-	// 	new FnE.Element("#topLevelNavigation li")
-	// 		.onPosition(function(windowWidth, windowHeight) {
-	// 			this.fontSize( Math.min( Math.max(windowWidth * 0.03225806451, 20), 35))
-	// 			.css("line-height", (this.fontSize() * 1.618) + "px");
-	// 		})
-	// );
+	pForm.addElement( 
+		new FnE.Element("#topLevelNavigation li")
+			.onPosition(function(windowWidth, windowHeight) {
+				this.fontSize( Math.min( Math.max(windowWidth * 0.03225806451, 20), 35))
+				.css("line-height", (this.fontSize() * 1.618) + "px");
+			})
+	);
 
-	// // topLevelNavigation
-	// pForm.addElement(
-	// 	new FnE.Element("#topLevelNavigation")
-	// 		.onPosition(function(windowWidth, windowHeight) {
-	// 			var logo = pForm.element("#logo");
-	// 			this.top(windowHeight * 0.618)
-	// 				.left(logo.width() + (windowWidth * 0.05) - this.width());
-	// 		})
-	// );
+	// topLevelNavigation
+	pForm.addElement(
+		new FnE.Element("#topLevelNavigation")
+			.onPosition(function(windowWidth, windowHeight) {
+				var logo = pForm.element("#logo");
+				this.top(windowHeight * 0.618)
+					.left(logo.width() + (windowWidth * 0.05) - this.width());
+			})
+	);
 
 
 	// call resize to initialize the element's positions
