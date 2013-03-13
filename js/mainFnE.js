@@ -136,7 +136,7 @@ $(function() {
 	pForm.addElement(
 		new FnE.Element("#bottomLeftBar")
 			.onPosition(function(windowWidth, windowHeight) {
-				var logo = pForm.element("#logo");  
+				var logo = pForm.element("#logo");
 				var topLeftBar = pForm.element("#topLeftBar");
 				this.left(logo.left())
 					.css("border-width", 4 * (logo.width() / 640))

@@ -5,8 +5,6 @@
 
 }
 
-html, body { height: 100%; width: 100%; margin: 0; }
-
 body {
 	background: black;
 	/*background: rgb(52,55,51);*/
@@ -14,36 +12,31 @@ body {
 	overflow: hidden;
 }
 
-
-#logo {
-	/*position: absolute;*/
-	/*left: 10px;*/
-	margin-left: 5%;
-	width: 30%;
-	height: auto;
+img {
+	max-width: 100%;
 }
 
+#logo {
+	position: absolute;
+	left: 10px;
+}
 
 .bar {
+	position: absolute;
+	width: 0;
 	border-style: solid;
 	border-color: #3f5fa7;
 	border-width: 0px;
-	border-left-width: 5px;
-	width: 0px;
-	margin-left: 5%;
 }
 
 #topLeftBar {
-	height: 15%;
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 }
 
 #bottomLeftBar {
-	height: 100%;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
-	float: left;
 }
 
 #clickArrow {
@@ -66,5 +59,10 @@ body {
 	color: #3f5fa7;
 	/*height: 25%;*/
 	cursor: pointer;
-	/*opacity: 0.0;*/
+	opacity: 0.0;
+}
+
+#topLevelNavigation li img {
+	width: auto;
+	height: 50px;
 }
