@@ -153,8 +153,7 @@ $(function() {
 				
 				if (hiscores.middleDivFilled && windowWidth < 700) {
 					this.left(logo.left());
-					topLevelNavigation.top( this.top() + this.height())
-						.left(logo.left());
+					topLevelNavigation.top( this.top() + this.height());
 				}
 			})
 	);
