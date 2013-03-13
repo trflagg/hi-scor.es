@@ -20,6 +20,10 @@ h1, h2, p {
 	color: #3f5fa7;
 }
 
+p {
+	font-size: 20px;
+}
+
 a, a:hover {
 	color: inherit;
 	text-decoration: underline;
