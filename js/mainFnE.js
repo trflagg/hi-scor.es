@@ -151,9 +151,10 @@ $(function() {
 				this.top(logo.top() + logo.height());
 				this.left( topLevelNavigation.left() + topLevelNavigation.width());
 				
-				if (hiscores.middleDivFilled && windowWidth < 700) {
-					this.left(topLevelNavigation.left());
+				if (hiscores.middleDivFilled && windowWidth < 600) {
+					this.left(logo.left());
 					topLevelNavigation.top( this.top() + this.height());
+					topLevelNavigation.left(logo.left());
 				}
 			})
 	);
@@ -183,18 +184,22 @@ $(window).resize(function() {
 function gamesClicked() {
 	$("#middleDiv").addClass("loaded").load("games.html");
 	hiscores.middleDivFilled = true;
+	FnE.PageForm.resize();
 }
 
 function aboutClicked() {
 	$("#middleDiv").load("about.html");
 	hiscores.middleDivFilled = true;
+	FnE.PageForm.resize();
 }
 
 function resumeClicked() {
 	$("#middleDiv").load("resume.html");
 	hiscores.middleDivFilled = true;
+	FnE.PageForm.resize();
 }
 
 function blogClicked() {
 	hiscores.middleDivFilled = true;
+	FnE.PageForm.resize();
 }

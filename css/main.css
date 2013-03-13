@@ -67,6 +67,12 @@ img {
 	min-width: 300px;
 }
 
+@media (max-width: 600px) {
+	#middleDiv {
+		min-width: 0px;
+	}
+}
+
 #bottomLeftBar {
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
