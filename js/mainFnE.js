@@ -1,6 +1,7 @@
 // cheap & easy namespaced globals
 hiscores = {};
 hiscores.arrowExpanded = false;
+hiscores.middleDivFilled = false;
 
 // init
 $(function() {
@@ -11,49 +12,43 @@ $(function() {
 	var pForm = FnE.PageForm;
 
 	// logo
-	pForm.addElement(
-		new FnE.Element("#logo")
-			.onPosition(function(windowWidth, windowHeight) {
-				this.left(windowWidth * 0.05)
-					.width( Math.min( Math.max(windowWidth * 0.35, 336), 448) )
-					.top(Math.max((windowHeight * 0.375 - 200), 0));
+	var logo = new FnE.Element("#logo");
+	logo.onPosition(function(windowWidth, windowHeight) {
+		this.left(windowWidth * 0.05)
+			.width( Math.min( Math.max(windowWidth * 0.35, 336), 448) )
+			.top(Math.max((windowHeight * 0.375 - 200), 0));
 
-				if (windowWidth < this.width()) {
-					this.width(windowWidth);
-					this.left(0);
-				}
-			})
-	);
+		if (windowWidth < this.width()) {
+			this.width(windowWidth);
+			this.left(0);
+		}
+	});
+	pForm.addElement(logo);
 
 	// topLeftBar
-	pForm.addElement(
-		new FnE.Element("#topLeftBar")
-			.onPosition(function(windowWidth, windowHeight) {
-				var logo = pForm.element("#logo");
-				this.left(logo.left() + 2)
-					.height(logo.top() - 5)
-					.css("border-width", 4 * (logo.width() / 640));
-				if (logo.top() <= 3) {
-					this.hide();
-				}
-				else {
-					this.show();
-				}
-			})
-	);
+	var topLeftBar = new FnE.Element("#topLeftBar");
+	topLeftBar.onPosition(function(windowWidth, windowHeight) {
+		this.left(logo.left() + 2)
+			.height(logo.top() - 5)
+			.css("border-width", 4 * (logo.width() / 640));
+		if (logo.top() <= 3) {
+			this.hide();
+		}
+		else {
+			this.show();
+		}
+	});
+	pForm.addElement(topLeftBar);
 
 
 	// each li in topLevelNavigation
-	pForm.registerSelector("#topLevelNavigation li");
-	// pForm.addElement( 
-		// new FnE.Element("#topLevelNavigation li")
-	// );
+	var navigation = new FnE.Element("#topLevelNavigation li");
+	pForm.addElement(navigation);
 
 	// topLevelNavigation
 	pForm.addElement(
 		new FnE.Element("#topLevelNavigation")
 			.onPosition(function(windowWidth, windowHeight) {
-				var logo = pForm.element("#logo");
 				this.top(windowHeight - (windowHeight * 0.375))
 					.left(logo.left() + (logo.width() - this.width()));
 
@@ -61,18 +56,23 @@ $(function() {
 					this.top(windowHeight - this.height());
 				}
 
+				if (this.top() < logo.top() + logo.height()) {
+					this.top(logo.top() + logo.height());
+				}
+
 				if (this.left() + this.width() > windowWidth) {
 					this.left(windowWidth - this.width());
 				}
+
 			})
 	);
+	var topLevelNavigation = pForm.element("#topLevelNavigation");
 
 	// clickArrow
 	pForm.addElement(
 		new FnE.Element("#clickArrow")
 			.onPosition(function(windowWidth, windowHeight) {
 				if (!hiscores.arrowExpanded) {
-					var logo = pForm.element("#logo");
 					var navigation = pForm.element("#topLevelNavigation");
 					this.top(navigation.top() - 15)
 						.width(Math.max(60 * (logo.width() / 640), 34));
@@ -85,17 +85,14 @@ $(function() {
 			.onHover(
 				//mouseenter
 				function() {
-					var logo = pForm.element("#logo");
 					this.left(logo.left() + 20);
 				},
 				//mouseleave
 				function() {
-					var logo = pForm.element("#logo");
 					this.left(logo.left() + 10);
 				}
 			)
 			.onClick(function() {
-				var logo = pForm.element("#logo");
 				var navigation = pForm.element("#topLevelNavigation");
 				var navigationLinks = pForm.element("#topLevelNavigation li");
 				navigationLinks.animate(true).animationTimingFunction("ease-in");
@@ -147,12 +144,24 @@ $(function() {
 			})
 	);
 
+	// middleDiv
+	pForm.addElement(
+		new FnE.Element("#middleDiv")
+			.onPosition(function(windowWidth, windowHeight) {
+				this.top(logo.top() + logo.height());
+				this.left( topLevelNavigation.left() + topLevelNavigation.width());
+				
+				if (hiscores.middleDivFilled && windowWidth < 700) {
+					this.left(topLevelNavigation.left());
+					topLevelNavigation.top( this.top() + this.height());
+				}
+			})
+	);
 
 	// bottomLeftBar
 	pForm.addElement(
 		new FnE.Element("#bottomLeftBar")
 			.onPosition(function(windowWidth, windowHeight) {
-				var logo = pForm.element("#logo");
 				var topLeftBar = pForm.element("#topLeftBar");
 				this.left(logo.left())
 					.css("border-width", 4 * (logo.width() / 640))
@@ -171,3 +180,21 @@ $(window).resize(function() {
 });
 
 
+function gamesClicked() {
+	$("#middleDiv").addClass("loaded").load("games.html");
+	hiscores.middleDivFilled = true;
+}
+
+function aboutClicked() {
+	$("#middleDiv").load("about.html");
+	hiscores.middleDivFilled = true;
+}
+
+function resumeClicked() {
+	$("#middleDiv").load("resume.html");
+	hiscores.middleDivFilled = true;
+}
+
+function blogClicked() {
+	hiscores.middleDivFilled = true;
+}

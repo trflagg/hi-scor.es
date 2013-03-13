@@ -8,8 +8,30 @@
 body {
 	background: black;
 	/*background: rgb(52,55,51);*/
-	color: #FFF;
+	font-family: 'Days One';
+	color: #AAA;
 }
+
+h1, h2, p {
+
+}
+
+p {
+	font-size: 20px;
+	padding-bottom: 20px;
+}
+
+a, a:hover {
+	font-size: 25px;
+	text-decoration: underline;
+	color: #BBB;
+}
+
+li a, li a:hover {
+	color: #3f5fa7;
+	text-decoration: none;
+}
+
 
 .outerFrame {
 	overflow: auto;
@@ -35,6 +57,14 @@ img {
 #topLeftBar {
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
+}
+
+#middleDiv {
+	position: absolute;
+	max-width: 800px;
+	padding: 8px;
+	padding-left: 15px;
+	min-width: 300px;
 }
 
 #bottomLeftBar {
