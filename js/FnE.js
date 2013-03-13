@@ -37,8 +37,6 @@ var FnE = function() {
 		},
 
 		resize : function() {
-			this._windowHeight = $(window).height();
-			this._windowWidth = $(window).width();
 
 			for (var key in this._elements) {
 				if (this._elements.hasOwnProperty(key)) {
@@ -47,6 +45,10 @@ var FnE = function() {
 						// save the animated property and restore it afterwards
 						var animState = element.isAnimated();
 						element.animate(false);
+						
+						// recalculate every time because it may change from previous call
+						this._windowHeight = $(window).height();
+						this._windowWidth = $(window).width();
 
 						element.position(this._windowWidth, this._windowHeight);
 						
