@@ -10,7 +10,23 @@ html, body { height: 100%; width: 100%; margin: 0; }
 body {
 	background: black;
 	/*background: rgb(52,55,51);*/
-	color: #FFF;
+	font-family: 'Days One';
+	color: #3f5fa7;
+}
+
+h1, h2, p {
+
+	font-family: 'Days One';
+	color: #3f5fa7;
+}
+
+a, a:hover {
+	color: inherit;
+	text-decoration: underline;
+}
+
+li a, li a:hover {
+	text-decoration: none;
 }
 
 
@@ -73,13 +89,13 @@ body {
 	float: left;
 }
 
-#spacerDiv {
+#spacerRow {
 	height: 40%;
 }
 
 
 @media (max-height: 600px) {
-	#spacerDiv {
+	#spacerRow {
 		height: 40%;
 
 	}
@@ -87,7 +103,7 @@ body {
 
 
 @media (max-height: 360px) {
-	#spacerDiv {
+	#spacerRow {
 		height: 0;
 
 	}

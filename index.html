@@ -29,16 +29,24 @@
 		</div>
 		<div id="bottomLeftBar" class="bar">&nbsp;</div>
 		
-		<div id="spacerDiv">&nbsp;</div>
-		<!-- <img id="clickArrow" class="" src="img/clickarrow.png" alt="click here"> -->
+		<div id="spacerRow" class="row-fluid">&nbsp;</div>
 		
 		<div id="row2" class="row-fluid">
 			<div id="topLevelNavigation" class="span2 offset2">
-				<ul>
-					<li>games</li>
-					<li>blog</li>
+				<ul id="topLevelUL">
+					<li><a href="#" onclick="gamesClicked();">games</a></li>
+					<li><a href="/blog/">blog</a></li>
 					<li>resume </li>
-					<li>about</li>
+					<li><a href="#" onclick="aboutClicked();">about</a></li>
+				</ul>
+				<ul style="display: none;" id="gamesUL">
+					<li><a href="http://hi-scor.es:3000/">MiS></a></li>
+					<li><a href="/ld23/game.html">ld23</a></li>
+					<li><a href="/ld24/index.html">ld24</a></li>
+					<li><a href="#" onclick="gamesClicked();">back</a></li>
+				</ul>
+				<ul style="display: none;" id="aboutUL">
+					<li><a href="#" onclick="aboutBackClicked();">back</a></li>
 				</ul>
 			</div>
 		</div>
