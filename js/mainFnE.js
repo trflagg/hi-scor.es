@@ -58,7 +58,7 @@ $(function() {
 					.left(logo.left() + (logo.width() - this.width()));
 
 				if (this.top() + this.height() > windowHeight) {
-					this.top(windowHeight - this.height());
+					this.top(logo.top() + logo.height() + 10);
 				}
 
 				if (this.left() + this.width() > windowWidth) {
