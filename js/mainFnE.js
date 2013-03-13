@@ -56,6 +56,14 @@ $(function() {
 				var logo = pForm.element("#logo");
 				this.top(windowHeight - (windowHeight * 0.375))
 					.left(logo.left() + (logo.width() - this.width()));
+
+				if (this.top() + this.height() > windowHeight) {
+					this.top(windowHeight - this.height());
+				}
+
+				if (this.left() + this.width() > windowWidth) {
+					this.left(windowWidth - this.width());
+				}
 			})
 	);
 
