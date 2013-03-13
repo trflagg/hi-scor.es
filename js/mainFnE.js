@@ -154,6 +154,7 @@ $(function() {
 				if (hiscores.middleDivFilled && windowWidth < 700) {
 					this.left(logo.left());
 					topLevelNavigation.top( this.top() + this.height());
+					topLevelNavigation.left(windowWidth - topLevelNavigation.width());
 				}
 			})
 	);
