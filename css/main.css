@@ -5,15 +5,13 @@
 
 }
 
-html, body { height: 100%; width: 100%; margin: 0; 
- min-width:1024px;}
+html, body { height: 100%; width: 100%; margin: 0; }
 
 body {
 	background: black;
 	/*background: rgb(52,55,51);*/
 	color: #FFF;
 }
-
 
 #content {
 	overflow: hidden !important;
@@ -55,7 +53,6 @@ body {
 
 #clickArrow {
 	position: absolute;
-	min-width: 30px;
 }
 
 #topLevelNavigation {
