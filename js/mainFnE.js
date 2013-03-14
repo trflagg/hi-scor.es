@@ -32,7 +32,7 @@ $(function() {
 		if (!topLeftBar || !bottomLeftBar || !clickArrow) {
 			return;
 		}
-		
+
 		this.removeEventHandlers().jquery().removeClass('pulse');
 		
 		hiscores.barsExtended = true;
@@ -192,7 +192,7 @@ $(function() {
 				this.top(logo.top() + logo.height());
 				this.left( topLevelNavigation.left() + topLevelNavigation.width());
 				
-				if (hiscores.middleDivFilled && windowWidth < 700) {
+				if (hiscores.middleDivFilled && windowWidth < 870) {
 					this.left(logo.left());
 					topLevelNavigation.top( this.top() + this.height());
 					topLevelNavigation.left(windowWidth - topLevelNavigation.width());
