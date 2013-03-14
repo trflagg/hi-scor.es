@@ -139,12 +139,12 @@ var FnE = function() {
 			return this._animated;
 		},
 		animateProperty : function(propertyName, value) {
+			this.animate();
 			this._jquery.css("-webkit-transition-property", propertyName);
 			this._jquery.css("-moz-transition-property", propertyName);
 			this._jquery.css("-o-transition-property", propertyName);
 			this._jquery.css("-ms-transition-property", propertyName);
 			this._jquery.css("transition-property", propertyName);
-			this._animated = true;
 			this._animatingProperty = propertyName;
 			this._animatedValue = value;
 			this.css(propertyName, value);

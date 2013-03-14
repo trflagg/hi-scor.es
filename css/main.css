@@ -46,6 +46,99 @@ img {
 	left: 10px;
 }
 
+.pulse {
+	cursor: pointer;
+	
+	-webkit-animation-duration: 2000ms;
+	-moz-animation-duration: 2000ms;
+	-ms-animation-duration: 2000ms;
+	-o-animation-duration: 2000ms;
+	animation-duration: 2000ms;
+	
+	-webkit-animation-direction: alternate;
+	-moz-animation-direction: alternate;
+	-ms-animation-direction: alternate;
+	-o-animation-direction: alternate;
+	animation-direction: alternate;
+
+	-webkit-animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	-ms-animation-iteration-count: infinite;
+	-o-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+
+	-webkit-animation-name: pulsate;
+	-moz-animation-name: pulsate;
+	-ms-animation-name: pulsate;
+	-o-animation-name: pulsate;
+	animation-name: pulsate;
+}
+
+@keyframes "pulsate" {
+ from {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+   	filter: alpha(opacity=50);
+   	opacity: 0.5;
+ }
+ to {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   	filter: alpha(opacity=100);
+   	opacity: 1.0;
+ }
+
+}
+
+@-moz-keyframes pulsate {
+ from {
+   filter: alpha(opacity=50);
+   opacity: 0.5;
+ }
+ to {
+   filter: alpha(opacity=100);
+   opacity: 1.0;
+ }
+
+}
+
+@-webkit-keyframes "pulsate" {
+ from {
+   filter: alpha(opacity=50);
+   opacity: 0.5;
+ }
+ to {
+   filter: alpha(opacity=100);
+   opacity: 1.0;
+ }
+
+}
+
+@-ms-keyframes "pulsate" {
+ from {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+   filter: alpha(opacity=50);
+   opacity: 0.5;
+ }
+ to {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1.0;
+ }
+
+}
+
+@-o-keyframes "pulsate" {
+ from {
+   filter: alpha(opacity=50);
+   opacity: 0.5;
+ }
+ to {
+   filter: alpha(opacity=100);
+   opacity: 1.0;
+ }
+
+}
+
+
 .bar {
 	position: absolute;
 	width: 0;
@@ -80,6 +173,8 @@ img {
 
 #clickArrow {
 	position: absolute;
+	opacity: 0.0;
+	cursor: pointer;
 }
 
 #clickArrow:active {
