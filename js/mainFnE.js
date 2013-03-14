@@ -25,13 +25,17 @@ $(function() {
 		}
 	})
 	.onClick(function() {
-		hiscores.barsExtended = true;
 		var topLeftBar = FnE.PageForm.element("#topLeftBar");
 		var bottomLeftBar = FnE.PageForm.element("#bottomLeftBar");
 		var clickArrow = FnE.PageForm.element("#clickArrow");
 
+		if (!topLeftBar || !bottomLeftBar || !clickArrow) {
+			return;
+		}
+		
 		this.removeEventHandlers().jquery().removeClass('pulse');
 		
+		hiscores.barsExtended = true;
 		var delay = 0;
 		if (topLeftBar.css("display") != 'none') {
 			topLeftBar
@@ -221,17 +225,6 @@ $(function() {
 $(window).resize(function() {
 	FnE.PageForm.resize();
 });
-
-function create_email() {
-	var tld = "com";
-	var mail = "", 
-		addr = "";
-	addr += 'trflagg';
-	mail += '<a href="' + 'ma' + 'il' + 'to:';
-	addr += '&#64;' + 'gm' + 'ail' + '.' + tld;
-	mail += addr +'">' + addr + '<' + '/a>';
-	document.write(mail);
-}
 
 function gamesClicked() {
 	$("#middleDiv").addClass("loaded").load("games.html", function() {

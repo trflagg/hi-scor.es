@@ -18,17 +18,25 @@ h2 {
 	text-shadow: #777 1px 2px;
 }
 
-p {
+h3 {
+	margin-bottom: 0px;
+}
+
+p, #resumeDiv li {
 	font-size: 20px;
 	padding-bottom: 20px;
 	font-family: sans-serif;
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 100;
 	text-transform: none;
 	text-decoration: none;
 	letter-spacing: 0.164em;
 	word-spacing: 0.169em;
 	line-height: 1.51;
+}
+
+#resumeDiv li {
+	padding-bottom: 0px;
 }
 
 a, a:hover {
