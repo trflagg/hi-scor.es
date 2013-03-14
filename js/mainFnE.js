@@ -7,6 +7,9 @@ hiscores.middleDivFilled = false;
 // init
 $(function() {
 
+	// if last page was from our domain, skip the interactive intro
+	
+
 	// Create new elements and add them to the page form
 	// Order is important because onPosition is called in the order that the elements are added
 	// this way I can refer to earlier elements' attributes in later onPosition's
@@ -219,6 +222,7 @@ $(function() {
 
 	// call resize to initialize the element's positions
 	pForm.resize();
+	pForm.element("#logo").show();
 });
 
 // set the pageForm resizer
@@ -241,7 +245,7 @@ function aboutClicked() {
 }
 
 function resumeClicked() {
-	$("#middleDiv").load("resume.html", function() {
+	$("#middleDiv").load("resumeContent.html", function() {
 		hiscores.middleDivFilled = true;
 		FnE.PageForm.resize();
 	});
