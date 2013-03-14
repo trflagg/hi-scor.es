@@ -84,6 +84,7 @@ var FnE = function() {
 		_selector : null,
 		_animated : false,
 		_duration : null,
+		_delay : null,
 		_timingFunction : null,
 		_animatingProperty : null,
 		_animatedValue : null,
@@ -109,6 +110,18 @@ var FnE = function() {
 				this.addClass("FnE_AnimateNone");
 				this._animated = false;
 			}
+			return this;
+		},
+		animationDelay : function(delayInMiliseconds) {
+			if (delayInMiliseconds === undefined) {
+				return this._delay;
+			}
+			this._delay = delayInMiliseconds;
+			this._jquery.css("-webkit-transition-delay", delayInMiliseconds+"ms");
+			this._jquery.css("-moz-transition-delay", delayInMiliseconds+"ms");
+			this._jquery.css("-o-transition-delay", delayInMiliseconds+"ms");
+			this._jquery.css("-ms-transition-delay", delayInMiliseconds+"ms");
+			this._jquery.css("transition-delay", delayInMiliseconds+"ms");
 			return this;
 		},
 		animationDuration : function(durationInMiliseconds) {

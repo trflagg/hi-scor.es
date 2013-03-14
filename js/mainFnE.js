@@ -23,7 +23,8 @@ $(function() {
 			this.width(windowWidth);
 			this.left(0);
 		}
-	}).onClick(function() {
+	})
+	.onClick(function() {
 		hiscores.barsExtended = true;
 		var topLeftBar = FnE.PageForm.element("#topLeftBar");
 		var bottomLeftBar = FnE.PageForm.element("#bottomLeftBar");
@@ -31,18 +32,28 @@ $(function() {
 
 		this.removeEventHandlers().jquery().removeClass('pulse');
 		
-		topLeftBar.runAnimation([
-				function() {
-					topLeftBar.animate(true).animationDuration(1000).position($(window).width(), $(window).height());
-
-				},
-				function() {
-					bottomLeftBar.animate(true).animationDuration(2500)
-						.css("border-width", 4 * (logo.width() / 640))
-						.position($(window).width(), $(window).height());
-					clickArrow.animate(true).animationDuration(2500).animationTimingFunction("ease-out").css("opacity",1.0);
-				}
-			]);
+		var delay = 0;
+		if (topLeftBar.css("display") != 'none') {
+			topLeftBar
+				.animate(true)
+				.animationDuration(1000)
+				.position($(window).width(), $(window).height());		
+			delay = 1000;
+		}
+		
+		bottomLeftBar
+			.animate(true)
+			.animationDuration(2500)
+			.animationDelay(delay)
+			.css("border-width", 4 * (logo.width() / 640))
+			.position($(window).width(), $(window).height());
+		
+		clickArrow
+			.animate(true)
+			.animationDuration(2500)
+			.animationDelay(delay)
+			.animationTimingFunction("ease-out")
+			.css("opacity",1.0);
 	});
 	pForm.addElement(logo);
 
@@ -129,6 +140,7 @@ $(function() {
 
 
 				this.animationDuration(1000)
+					.animationDelay(0)
 					.removeEventHandlers()
 					.runAnimation([
 						function() {
@@ -210,6 +222,16 @@ $(window).resize(function() {
 	FnE.PageForm.resize();
 });
 
+function create_email() {
+	var tld = "com";
+	var mail = "", 
+		addr = "";
+	addr += 'trflagg';
+	mail += '<a href="' + 'ma' + 'il' + 'to:';
+	addr += '&#64;' + 'gm' + 'ail' + '.' + tld;
+	mail += addr +'">' + addr + '<' + '/a>';
+	document.write(mail);
+}
 
 function gamesClicked() {
 	$("#middleDiv").addClass("loaded").load("games.html", function() {
