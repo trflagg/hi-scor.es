@@ -51,6 +51,10 @@ p, #resumeDiv li {
 	padding-bottom: 0px;
 }
 
+#resumeDiv ul {
+	margin-bottom: 20px;
+}
+
 a, a:hover {
 	text-decoration: underline;
 	color: #BBB;
