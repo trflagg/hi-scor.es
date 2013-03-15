@@ -1,98 +1,101 @@
 <div id="resumeDiv">
+	<h1>Taylor Flagg</h1>
 	<div  id="contentHeader" >
-		<h2 style="display:inline;">resume</h2>
 		<a href="resume.html">[printer friendly]</a>
 	</div>
-	<p>Taylor Flagg<br/>
+	<p style="font-size: 1.0em;">
 		108 Magazine St.<br/>
 		Cambridge MA, 02139<br/>
+		<span id="phoneNum"></span><br/>
 		<span id="emailLink"></span>
 		<script type="text/javascript">
-	var tld = "com";
-	var mail = "", 
-		addr = "";
-	addr += 'trflagg';
-	mail += '<a href="' + 'ma' + 'il' + 'to:';
-	addr += '&#64;' + 'gm' + 'ail' + '.' + tld;
-	mail += addr +'">' + addr + '<' + '/a>';
-	$("#emailLink").html(mail);
-	</script>
+			var n1 = "17-46",
+				tld = "com",
+				n2 = "0-0814"
+				mail = "", 
+				addr = "";
+			addr += 'trflagg';
+			n1 = "6" + n1 + n2;
+			mail += '<a href="' + 'ma' + 'il' + 'to:';
+			addr += '&#64;' + 'gm' + 'ail' + '.' + tld;
+			mail += addr +'">' + addr + '<' + '/a>';
+			$("#phoneNum").html(n1);
+			$("#emailLink").html(mail);
+		</script>
 	</p>
 
-	<h3>Skills</h3>
-	<ul>
-		<li>JavaScript, Cache ObjectScript, Python, Java</li>
-		<li>Node.js &amp; Express, InterSystems Zen, Cach&eacute; Server Pages, Django, Java Servlets, WebObjects</li>
-		<li>JQuery, JSON &amp; AJAX, CSS3 animation, HTML5 canvas animation</li>
-		<li>InterSystems Cach&eacute; (object-based dbms), MongoDB, MySQL</li>
-	</ul>
+	<h2>Skills</h2>
+		<ul>
+			<li>JavaScript, Cache ObjectScript, Python, Java</li>
+			<li>Node.js &amp; Express, InterSystems Zen, Cach&eacute; Server Pages, Django, Java Servlets, WebObjects</li>
+			<li>JQuery, JSON &amp; AJAX, CSS3 animation, HTML5 canvas animation</li>
+			<li>InterSystems Cach&eacute; (object-based dbms), MySQL, MongoDB</li>
+		</ul>
 
-	<h3>Education</h3>
-	<p><strong>University of Florida</strong><br/>
-		Bachelor of Science <em>cum laud</em>, May 2005.<br/>
-		Major: Computer Science<br/>
-		Minor: Music Theory/Literature<br/>
-		GPA: 3.7<br/>
-	</p>
-	<p><strong>University of Florida School of Engineering</strong><br/>
-		PhD student in Computer Science, August 2005 &ndash; December 2006.<br/>
-		Graduate courses included: Computer Networks, Distributed Operating Systems, Programming Language Principles, Formal Languages &amp; Computational Theory, Concurrent Programming, Computer &amp; Network Security<br/>
-		GPA: 3.8<br/>
-	</p>
+	<h2>Education</h2>
+		<strong>University of Florida</strong>
+		<p>
+			Bachelor of Science <em>cum laud</em>, May 2005.<br/>
+			Major: Computer Science<br/>
+			Minor: Music Theory/Literature<br/>
+			GPA: 3.7<br/>
+		</p>
+		<strong>University of Florida School of Engineering</strong>
+		<p>
+			PhD student in Computer Science, August 2005 &ndash; December 2006.<br/>
+			Graduate courses included: Computer Networks, Programming Language Principles, Formal Languages &amp; Computational Theory, Concurrent Programming, Computer &amp; Network Security<br/>
+			While in graduate school, I spent three semesters as a TA for <u>Problem Solving Using Computer Software</u>. Each semester I had 150 students and was responsible for lecturing, writing quizzes, managing grades, and handling office hours.<br/>
+			GPA: 3.8<br/>
+		</p>
 
-	<h3>Experience</h3>
-		<h4>University of Florida</h4>
-		<p>August 2005 &ndash; December 2006</p>
-	<p>
-		<strong>Teaching Assistant</strong> <br/>
-		While in graduate school, I spent three semesters as a TA for <u>Problem Solving Using Computer Software</u>. Each semester I had about 150 students and was responsible for lecturing, writing quizzes, managing grades, and handling office hours.
-	</p>
+	<h2>Work Experience</h2>
 
-		<h4>InterSystems Corporation</h4>
+		<h3>InterSystems Corporation</h3>
 		<p>February 2007 - February 2013</p>
-	<p>
-		<strong>Technical Trainer</strong> (February 2007 &ndash; June 2010)<br/>
-		With my experience as a teaching TA, I was hired at InterSystems a Technical Trainer. I taught courses in object-oriented programming, web programming, and system management both in our classroom in Cambridge and at customer sites around the world. 
-	</p>
-	<p><u>Zen Programming Course</u><br/>
-		Built a 3&ndash;day training course based on InterSystem's web programming technology. Developed the entire course including agenda, lecture-slides, and exercises.
-	</p>
-	<p>
-		<strong>Web Programmer</strong> (June 2010 &ndash; February 2013)<br/>
-		Given my interest in web programming, in 2010 I began managing and developing web applications used by the Learning Services department. About halfway through the year, I stopped training and transitioned to full time web programmer. I was responsible for design and development of new applications, ongoing management of the existing applications (bug fixes, special requests, etc.), and system administration of the host linux servers. In addition, I served as technical coordinator for a number of projects persued by the Social team.
-	</p>
-	<p>
-		<u>InterSystems Video Library</u>  <a href="http://video.intersystems.com">http://video.intersystems.com</a><br/>
-		Designed and developed company's video portal using InterSystems' Zen framework and JQuery. Features AJAX page updates, programmatically generated RSS feeds, and a back-end that communicates with Brightcove video server using REST API calls.
-	</p>
-	<p>
-		<u>InterSystems Community Job Connection</u>  <a href="http://jobconnection.intersystems.com">http://jobconnection.intersystems.com</a><br/>
-		Built new version of job-finding site based on an existing design. Programmed the site using InterSystems' Cach&eacute; database and Zen framework.
-	</p>
-	<p>
-		<u>InterSystems Developer Connection</u>  <a href="http://developer.intersystems.com">http://developer.intersystems.com</a><br/>
-		Technical coordinator and co-architect for the site. Managed contract developers, worked with an outside design firm, and administrated the hosting servers during development. Also collaborated with collegues from Documentation and Social Media to create the site's architecture.
-	</p>
-	<p>
-		<u>SURCA</u>  (internal tool)<br/>
-		Served as mentor and project manager for ongoing development of internal training and survey tracking web application. Mentored seven interns over four summer internship periods. Oversaw project architecture, schedules, and development.
-	</p>
-	<p>
-		<u>InterSystems Healthcare Community</u>  (internal community)<br/>
-		Technical coordinator, responsible for technical details of an internal Joomla-based community. Tasks included interface development and improvements, server administration and upgrades, database management, and bug-fixes.
-	</p>
+		<h4>Technical Trainer</h4> <p style="display: inline;">(February 2007 &ndash; June 2010)</p>
+		<p>
+			With my experience as a teaching TA, I was hired at InterSystems a Technical Trainer. I taught courses in object-oriented programming, web programming, and system management both in our classroom in Cambridge and at customer sites around the world. 
+		</p>
+		<p>
+			<strong>Zen Programming Course</strong><br/>
+			Built a 3&ndash;day training course based on InterSystem's web programming technology. Developed the entire course including agenda, lecture-slides, and exercises.
+		</p>
+		<h4>Web Programmer</h4> <p style="display: inline;">(June 2010 &ndash; February 2013)</p>
+		<p>
+			Given my interest in web programming, in 2010 I began managing and developing web applications used by the Learning Services department. About halfway through the year, I stopped training and transitioned to full time web programmer. I was responsible for design and development of new applications, ongoing management of the existing applications (bug fixes, special requests, etc.), and system administration of the host linux servers. In addition, I served as technical coordinator for a number of projects persued by the Social team.
+		</p>
+		<p>
+			<strong>InterSystems Video Library</strong>  <a href="http://video.intersystems.com">http://video.intersystems.com</a><br/>
+			Designed and developed company's video portal using InterSystems' Zen framework, JavaScript, and JQuery. Features AJAX page updates and a back end that communicates with Brightcove video server using REST API calls.
+		</p>
+		<p>
+			<strong>InterSystems Community Job Connection</strong>  <a href="http://jobconnection.intersystems.com">http://jobconnection.intersystems.com</a><br/>
+			Built new version of job-finding site based on an existing design. Programmed the site using JavaScript, InterSystems' Cach&eacute; database, and the Zen framework.
+		</p>
+		<p>
+			<strong>InterSystems Developer Connection</strong>  <a href="http://developer.intersystems.com">http://developer.intersystems.com</a><br/>
+			Technical coordinator and co-architect for the site. Managed contract developers, worked with an outside design firm, and administrated the hosting servers during development. Also collaborated with collegues from Documentation and Social Media to create the site's architecture.
+		</p>
+		<p>
+			<strong>SURCA</strong>  (internal tool)<br/>
+			Served as mentor and project manager for ongoing development of internal training and survey tracking web application. Mentored seven interns over four summer internship periods. Oversaw project architecture, schedules, and development.
+		</p>
+		<p>
+			<strong>InterSystems Healthcare Community</strong>  (internal community)<br/>
+			Technical coordinator, responsible for technical details of an internal Joomla-based community. Tasks included interface development and improvements, server administration and upgrades, database management, and bug-fixes.
+		</p>
 
-	<h3>Outside Programming</h3>
-	<p>I am very interested in the use of web technology to create cross-platform interactive games. I have been expirimenting with games that use AJAX, the HTML5 canvas element, and CSS3 transition/transform properties together for animation and interaction.
-	</p>
-	<p>
-		<u>Make it So</u> <a href="https://github.com/trflagg/MiS">https://github.com/trflagg/MiS</a><br/>
-		100% JavaScript sci-fi adventure game with a Node.js/Express back end using MongoDB for storage, jQuery and CSS transformations for animation, and Twitter Bootstrap for a responsive cross-platform layout.
-	</p>
-	<p>
-		<u>Tiny World Machine Inc.</u> <a href="https://github.com/trflagg/TinyCampbell">https://github.com/trflagg/TinyCampbell</a><br/>
-		<u>Darwin Defenders</u> <a href="https://github.com/trflagg/DarwinDefenders">https://github.com/trflagg/DarwinDefenders</a><br/>
-		Each game was written in 48 hours as part of an online competition. They both were programmed in JavaScript using HTML5 canvas. Darwin Defenders generates its enemies with a genetic algorithm, which is pretty interesting even though the game ended up being rather boring.
-	</p>
+	<h2>Outside Programming</h2>
+		<p>I am very interested in the use of web technology to create cross-platform interactive games. I have been experimenting with games that use AJAX, the HTML5 canvas element, and CSS3 transition/transform properties together for animation and interaction.
+		</p>
+		<p>
+			<strong>Make it So</strong> <a href="https://github.com/trflagg/MiS">https://github.com/trflagg/MiS</a><br/>
+			100% JavaScript sci-fi adventure game with a Node.js/Express back end using MongoDB for storage, jQuery and CSS transformations for animation, and Twitter Bootstrap for a responsive cross-platform layout. I started working on it as an excuse to learn Node. It's still in early alpha. 
+		</p>
+		<p>
+			<strong>Tiny World Machine Inc.</strong> <a href="https://github.com/trflagg/TinyCampbell">https://github.com/trflagg/TinyCampbell</a><br/>
+			<strong>Darwin Defenders</strong> <a href="https://github.com/trflagg/DarwinDefenders">https://github.com/trflagg/DarwinDefenders</a><br/>
+			Each game was written in 48 hours as part of an online competition. They both were programmed in JavaScript using HTML5 canvas. Darwin Defenders generates its enemies with a genetic algorithm, which is pretty interesting even though the game ended up being rather boring.
+		</p>
 	<a href="#top">back to top</a>
 </div>

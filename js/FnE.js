@@ -264,9 +264,11 @@ var FnE = function() {
 		},
 		hide : function() {
 			this._jquery.hide();
+			return this;
 		},
 		show : function() {
 			this._jquery.show();
+			return this;
 		},
 
 		// getters & setters

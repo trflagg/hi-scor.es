@@ -7,8 +7,6 @@ hiscores.middleDivFilled = false;
 // init
 $(function() {
 
-	// if last page was from our domain, skip the interactive intro
-	
 
 	// Create new elements and add them to the page form
 	// Order is important because onPosition is called in the order that the elements are added
@@ -123,7 +121,9 @@ $(function() {
 					this.left(logo.left() + 10);
 
 				}
-				
+				else {
+					this.hide();
+				}
 			})
 			.onHover(
 				//mouseenter
@@ -140,11 +140,13 @@ $(function() {
 				var navigationLinks = pForm.element("#topLevelNavigation li");
 				navigationLinks.animate(true).animationTimingFunction("ease-in");
 				var $navigationLinks = navigationLinks.jquery();
-				hiscores.arrowExpanded = true;
 				var linkHeight = $navigationLinks.height();
 				var paddingHeight = parseInt($navigationLinks.css("padding-bottom"),10);
 				var arrowMoveDownBy = linkHeight + paddingHeight;
 
+				hiscores.arrowExpanded = true;
+				// set the cookie so that we don't have to do this again
+				document.cookie = "arrowExpanded=true";
 
 				this.animationDuration(1000)
 					.animationDelay(0)
@@ -220,6 +222,15 @@ $(function() {
 			})
 	);
 
+	// if last page was from our domain, skip the interactive intro
+	if (document.cookie.indexOf("arrowExpanded") != -1)
+	{
+		logo.removeEventHandlers().jquery().removeClass('pulse');
+		navigation.css("opacity",1.0).show();
+		hiscores.barsExtended = true;
+		hiscores.arrowExpanded = true;
+	}
+
 	// call resize to initialize the element's positions
 	pForm.resize();
 	pForm.element("#logo").show();
@@ -231,7 +242,7 @@ $(window).resize(function() {
 });
 
 function gamesClicked() {
-	$("#middleDiv").addClass("loaded").load("games.html", function() {
+	$("#middleDiv").load("games.html", function() {
 		hiscores.middleDivFilled = true;
 		FnE.PageForm.resize();
 	});
