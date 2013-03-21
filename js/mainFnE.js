@@ -272,7 +272,8 @@ function blogClicked() {
 		url: "http://hi-scor.es/blog/?json=get_recent_posts&count=1",
 		dataType: "json"
 	}).done(function(data) {
-		$("#middleDiv").html(data.posts[0].content);
+		var lastPost = data.posts[0];
+		$("#middleDiv").append("<h2>"+ lastPost.title_plain+"</h2><p>"+lasPost.content+"</p>"+"<a href='/blog/'>Full Blog</a>");
 		hiscores.middleDivFilled = true;
 		FnE.PageForm.resize();
 	});
