@@ -75,7 +75,7 @@ $(function() {
 		}
 
 		if (hiscores.barsExtended) {
-			this.height(logo.top() - 5)
+			this.height(logo.top() - 8)
 			.css("border-width", 4 * (logo.width() / 640));
 		}
 	});
@@ -90,6 +90,7 @@ $(function() {
 	pForm.addElement(
 		new FnE.Element("#topLevelNavigation")
 			.onPosition(function(windowWidth, windowHeight) {
+				console.log(windowHeight);
 				this.top(windowHeight - (windowHeight * 0.375))
 					.left(logo.left() + (logo.width() - this.width()));
 
@@ -102,7 +103,7 @@ $(function() {
 				}
 
 				if (this.left() + this.width() > windowWidth) {
-					this.left(windowWidth - this.width());
+					this.left(windowWidth - this.width() + 10);
 				}
 
 			})
@@ -199,8 +200,11 @@ $(function() {
 				
 				if (hiscores.middleDivFilled && windowWidth < 870) {
 					this.left(logo.left());
-					topLevelNavigation.top( this.top() + this.height());
-					topLevelNavigation.left(windowWidth - topLevelNavigation.width());
+					topLevelNavigation.top(this.top() + this.height() + topLevelNavigation.height() + 10);
+					console.log("top:" + this.top());
+					console.log("height:" + this.height());
+					console.log("win:" + this.selector());
+					topLevelNavigation.left(windowWidth - topLevelNavigation.width() - 10);
 				}
 			})
 	);
@@ -263,6 +267,13 @@ function resumeClicked() {
 }
 
 function blogClicked() {
-	hiscores.middleDivFilled = true;
-	FnE.PageForm.resize();
+	// grab the most recent post
+	$.ajax({
+		url: "http://hi-scor.es/blog/?json=get_recent_posts&count=1",
+		dataType: "json"
+	}).done(function(data) {
+		$("#middleDiv").html(data.posts[0].content);
+		hiscores.middleDivFilled = true;
+		FnE.PageForm.resize();
+	});
 }

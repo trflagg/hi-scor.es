@@ -22,6 +22,33 @@
             margin-top: 15px;
         }
 
+        div {
+            page-break-before: always;
+        }
+
+        div:first-child {
+            page-break-before: avoid;
+
+        }
+
+        a {
+            color: black;
+            text-decoration: underline;
+        }
+        
+        @media print {
+            #resumeDiv {
+                /*max-width: 5in;*/
+            }
+            .topLink {
+                display: none;
+            }
+        }
+        @page {
+            margin: 2in;
+
+        }
+
     </style>
 </head>
 <body>
