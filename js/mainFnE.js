@@ -274,8 +274,7 @@ function blogClicked() {
 	}).done(function(data) {
 		var lastPost = data.posts[0];
 		var lastModified = new Date(lastPost.modified);
-		var dateString = lastModified.getMonth() + " " + lastModified.getDate() + " " + lastModified.getFullYear();
-		$("#middleDiv").empty().append("<h2>"+ lastPost.title_plain+"</h2><p>"+dateString+"</p><p>"+lastPost.content+"</p>"+"<a href='/blog/'>Full Blog</a>");
+		$("#middleDiv").empty().append("<h2>"+ lastPost.title_plain+"</h2><p>"+lastModified.toDateString()+"</p><p>"+lastPost.content+"</p>"+"<a href='/blog/'>Full Blog</a>");
 		hiscores.middleDivFilled = true;
 		FnE.PageForm.resize();
 	});
