@@ -273,7 +273,7 @@ function blogClicked() {
 		dataType: "json"
 	}).done(function(data) {
 		var lastPost = data.posts[0];
-		$("#middleDiv").append("<h2>"+ lastPost.title_plain+"</h2><p>"+lasPost.content+"</p>"+"<a href='/blog/'>Full Blog</a>");
+		$("#middleDiv").append("<h2>"+ lastPost.title_plain+"</h2><p>"+lastPost.content+"</p>"+"<a href='/blog/'>Full Blog</a>");
 		hiscores.middleDivFilled = true;
 		FnE.PageForm.resize();
 	});
