@@ -75,7 +75,6 @@ img {
 }
 
 #logo {
-	position: absolute;
 	left: 10px;
 	display: none;
 }
@@ -172,9 +171,11 @@ img {
 
 }
 
+.fixedItem {
+	position: fixed;
+}
 
 .bar {
-	position: absolute;
 	width: 0;
 	border-style: solid;
 	border-color: #3f5fa7;
@@ -216,7 +217,6 @@ img {
 }
 
 #topLevelNavigation {
-	position: absolute;
 }
 
 #topLevelNavigation ul {

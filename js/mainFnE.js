@@ -198,13 +198,23 @@ $(function() {
 				this.top(logo.top() + logo.height());
 				this.left( topLevelNavigation.left() + topLevelNavigation.width());
 				
+
 				if (hiscores.middleDivFilled && windowWidth < 870) {
 					this.left(logo.left());
+
+					// thin window - throw the navigation underneath
 					topLevelNavigation.top(this.top() + this.height() + topLevelNavigation.height() + 10);
 					console.log("top:" + this.top());
 					console.log("height:" + this.height());
 					console.log("win:" + this.selector());
 					topLevelNavigation.left(windowWidth - topLevelNavigation.width() - 10);
+
+					// logo, bars, & navigation aren't fixed.
+					$(".fixedItem").css("position","absolute");
+				}
+				else {
+
+					$(".fixedItem").css("position","fixed");
 				}
 			})
 	);
@@ -267,6 +277,8 @@ function resumeClicked() {
 }
 
 function blogClicked() {
+	$("#middleDiv").empty();
+
 	// grab the most recent post
 	$.ajax({
 		url: "http://hi-scor.es/blog/?json=get_recent_posts&count=1",
@@ -274,7 +286,7 @@ function blogClicked() {
 	}).done(function(data) {
 		var lastPost = data.posts[0];
 		var lastModified = new Date(lastPost.modified);
-		$("#middleDiv").empty().append("<h2>"+ lastPost.title_plain+"</h2><p>"+lastModified.toDateString()+"</p><p>"+lastPost.content+"</p>"+"<a href='/blog/'>Full Blog</a>");
+		$("#middleDiv").append("<h2>"+lastPost.title_plain+"</h2><p>"+lastModified.toDateString()+"</p><p>"+lastPost.content+"</p>"+"<a href='/blog/'>Full Blog</a>");
 		hiscores.middleDivFilled = true;
 		FnE.PageForm.resize();
 	});
