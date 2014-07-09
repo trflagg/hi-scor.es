@@ -279,14 +279,19 @@ function resumeClicked() {
 function blogClicked() {
 	$("#middleDiv").empty();
 
+	// Under Construction!
 	// grab the most recent post
-	$.ajax({
-		url: "http://hi-scor.es/blog/?json=get_recent_posts&count=1",
-		dataType: "json"
-	}).done(function(data) {
-		var lastPost = data.posts[0];
-		var lastModified = new Date(lastPost.modified);
-		$("#middleDiv").append("<h2>"+lastPost.title_plain+"</h2><p>"+lastModified.toDateString()+"</p><p>"+lastPost.content+"</p>"+"<a href='/blog/'>Full Blog</a>");
+	// $.ajax({
+	// 	url: "http://hi-scor.es/blog/?json=get_recent_posts&count=1",
+	// 	dataType: "json"
+	// }).done(function(data) {
+	// 	var lastPost = data.posts[0];
+	// 	var lastModified = new Date(lastPost.modified);
+	// 	$("#middleDiv").append("<h2>"+lastPost.title_plain+"</h2><p>"+lastModified.toDateString()+"</p><p>"+lastPost.content+"</p>"+"<a href='/blog/'>Full Blog</a>");
+	// 	hiscores.middleDivFilled = true;
+	// 	FnE.PageForm.resize();
+	// });
+	$("#middleDiv").load("blogContent.html", function() {
 		hiscores.middleDivFilled = true;
 		FnE.PageForm.resize();
 	});
