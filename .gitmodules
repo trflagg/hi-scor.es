@@ -1,0 +1,12 @@
+[submodule "client/tiny_world_machine"]
+	path = client/tiny_world_machine
+	url = https://github.com/trflagg/TinyCampbell
+[submodule "client/darwin_defenders"]
+	path = client/darwin_defenders
+	url = https://github.com/trflagg/DarwinDefenders
+[submodule "DarwinDefenders"]
+	path = DarwinDefenders
+	url = https://github.com/trflagg/DarwinDefenders
+[submodule "TinyCampbell"]
+	path = TinyCampbell
+	url = https://github.com/trflagg/TinyCampbell
