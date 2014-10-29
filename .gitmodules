@@ -10,3 +10,6 @@
 [submodule "TinyCampbell"]
 	path = TinyCampbell
 	url = https://github.com/trflagg/TinyCampbell
+[submodule "P27"]
+	path = P27
+	url = https://github.com/trflagg/P27
