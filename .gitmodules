@@ -13,3 +13,6 @@
 [submodule "P27"]
 	path = P27
 	url = https://github.com/trflagg/P27
+[submodule "SolidGround"]
+	path = SolidGround
+	url = https://github.com/trflagg/SolidGround
