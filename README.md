@@ -6,12 +6,12 @@ Code for the website http://hi-scor.es.
 
 to build:
 
-    docker build -t hiscores ./
+    make build
 
 to run in dev mode:
 
-    docker run -itp 80:80 -v 'localdir':'/usr/local/src/hiscores':ro hi-scor.es bin/bash
+    make run-dev
 
 to run in production:
 
-    sudo docker run --name='hiscores' --publish=80:80 -d hiscores
+    make run
