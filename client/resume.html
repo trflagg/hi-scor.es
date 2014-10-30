@@ -5,7 +5,8 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
 
-        .friendlyLink {
+        .friendlyLink,
+        .topLink {
     		display: none;
     	}
 
@@ -19,17 +20,22 @@
             margin-bottom: -0.1em;
         }
 
+        h3 {
+            margin-top: 0px;
+        }
+
         h4 {
-            margin: 0;
+            margin: 0px;
+            font-size: 16px;
         }
 
         div {
             page-break-before: always;
+            margin-top: -0.5em;
         }
 
-        div:first-child {
-            page-break-before: avoid;
-
+        p {
+            margin-left: 1.8em;
         }
 
         a {
@@ -44,37 +50,29 @@
 
         #contactInfo {
             line-height: 1.1em;
-        }
-
-        /* this is stupid */
-        #skills,
-        #education,
-        #outside {
-            margin-top: -0.5em;
-        }
-
-        /* so is this */
-        #skills p,
-        #outside p,
-        #work p,
-        #education p {
-            margin-left: 1.8em;
+            margin: 5px;
+            margin-left: 0px;
         }
 
         #work div {
-            margin-top: 1.5em;
+            margin-top: 15px;
+        }
+
+        #work div:first-child {
+            margin-top: 0px;
         }
 
         @media print {
             body { margin: .5in .5in .5in .5in; }
-            h1 { font-size: 14pt; }
+            h1 { font-size: 14pt; margin-top: 0px; }
             h2 { font-size: 12pt; }
             h3 { font-size: 10pt; }
-            h4 { font-size: 8pt; }
+            h4 { font-size: 8pt; font-weight: bold; }
             p { font-size: 8pt; }
+
             div {
-                page-break-after: auto;
                 page-break-before: auto;
+                page-break-after: auto;
             }
             .topLink {
                 display: none;
@@ -90,7 +88,9 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script type="text/javascript">
     	$(function() {
-    		$("#content").load("resumeContent.html");
+    		$("#content").load("resumeContent.html", function() {
+                $("#content a").removeAttr('href');
+            });
     	});
     </script>
 </body>
