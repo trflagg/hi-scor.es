@@ -16,3 +16,6 @@
 [submodule "SolidGround"]
 	path = SolidGround
 	url = https://github.com/trflagg/SolidGround
+[submodule "TheDiskOfPhaistos"]
+	path = TheDiskOfPhaistos
+	url = https://github.com/trflagg/TheDiskOfPhaistos.git
