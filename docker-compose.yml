@@ -1,0 +1,10 @@
+hiscores:
+  build: .
+  ports:
+    - "80:80"
+mis:
+  build: "https://github.com/trflagg/MakeItSo.git"
+  ports:
+    - "3000:3000"
+  environment:
+    MONGO_URL:

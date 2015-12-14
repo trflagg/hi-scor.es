@@ -8,10 +8,6 @@ to build:
 
     make build
 
-to run in dev mode:
-
-    make run-dev
-
-to run in production:
+to run entire site:
 
     make run
