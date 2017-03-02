@@ -1,11 +1,13 @@
+
 <div id="resumeDiv">
 	<h1>Taylor Flagg</h1>
 	<div  class="friendlyLink" >
 		<a href="resume.html">printer friendly</a>
 	</div>
 	<p style="font-size: 1.0em;" id="contactInfo">
-		<span id="phoneNum"></span><br/>
-		<span id="emailLink"></span>
+    <a href="http://hi-scor.es">http://hi-scor.es</a></br>
+		<span id="emailLink"></span><br/>
+		<span id="phoneNum"></span>
 		<script type="text/javascript">
 			var n1 = "17-46",
 				tld = "com",
@@ -25,20 +27,40 @@
 	<h2>Skills</h2>
 	<div id="skills" class="">
 		<h4>Languages</h4>
-			<p>JavaScript, HTML, CSS, Python, Cach&eacute; ObjectScript, Java</p>
+			<p>JavaScript (including ES6)/Coffeescript, HTML5, CSS3, Python, Ruby, Cach&eacute; ObjectScript</p>
 		<h4>Front-end Technologies</h4>
-			<p>Backbone.js, JQuery, SASS, Twitter Bootstrap, RequireJS, Grunt, Bower, CSS3 animation, HTML5 canvas</p>
+			<p>React, JQuery, SASS, Backbone.js/Underscore, Webpack/Browserify/NPM/Grunt/RequireJS, Highcharts, CSS animation, HTML canvas, HTML5 audio and video</p>
 		<h4>Back-end Frameworks</h4>
-			<p>Node.js &amp; Koa/Express, Flask &amp; Jinja, Django, InterSystems Zen</p>
+			<p>Node.js &amp; Koa/Express, Rails, Flask</p>
 		<h4>Technologies</h4>
-			<p>Linux, Git, Unit Testing, Agile Development, Amazon AWS, Docker, Vagrant</p>
+			<p>Git, Docker, AWS/Google Cloud, NPM, Unit Testing with Mocha/Sinon/Chai/PhantomJS/etc., iOS and Android Web Development & Testing, Agile Development</p>
 		<h4>Databases</h4>
-			<p>MongoDB, MySQL &amp; PostgreSQL, InterSystems Cach&eacute; (object-based dbms)</p>
+			<p>MySQL &amp; PostgreSQL, MongoDB, InterSystems Cach&eacute; (object-based dbms)</p>
 	</div>
 
 	<h2>Work Experience</h2>
 		<div id="work">
-			<div>
+      <div>
+        <h3>Tapjoy - Senior Front-end Engineer</h3>
+        <p class="workDates">December 2014 - October 2016</p>
+        <p>
+          I was part of multiple teams while at Tapjoy and got the chance to work with various front-end technologies.
+
+        </p>
+        <h4>Dashboard Integration</h4>
+        <p>
+          Part of the team that integrated existing customer-facing dashboard functionality with a newly acquired partner's dashboard. The site was written in Coffeescript with Mustache templates and used Backbone, Highcharts, jQuery, and the Ractive framework to aggregate live data from multiple back-end servers and present it in various graphs, charts, and tables.
+        </p>
+        <h4>Audience Targeting Tools</h4>
+        <p>
+          Sole font-end developer on the targeting team as we worked to overhaul the form tools our sales team used to target their audience. I developed and integrated new React components with our existing ERB template forms and used SASS to update the look to match our design team's mockups. The most fun part was using React, Ruby, and MySQL to create a typeahead selector for our geotargeting that enabled the user to quickly search among the thousands of countries, regions, and cities in our database.
+        </p>
+        <h4>Ad Flighting</h4>
+        <p>
+          Worked on both sides of our ad-flighting technology. First, by maintaining and improving the dashboard used by the sales team to flight the ads. This dashboard employed a hodge-podge of Ruby ERB, Backbone.js, and React. Following that, I was responsible for the platform of JavaScript code that ran on the user's mobile device to deliver the interactive video ad experience. The configurable platform was pure ES6 JavaScript (translated with Babel) with CSS animations running within the device OS's webview.
+          </p>
+      </div>
+      <div>
 				<h3>Scout Exchange - Front-end Developer</h3>
 				<p class="workDates">April 2013 - August 2014</p>
 				<p>
@@ -46,15 +68,15 @@
 				</p>
 				<h4>UI Build System</h4>
 				<p>
-				I designed and implemented a UI-build system to speed up and simplify our front-end code. I incorporated SASS for cleaner CSS code and dependency control, integrated RequireJS for JavaScript dependency control, and used Grunt to package our library and custom code into single files -one per interface. I reduced our file accesses from about 20 files per page to 3, speeding up response time and drastically reducing our bandwidth.
+				Designed and implemented a UI-build system to speed up and simplify our front-end code. I incorporated SASS for cleaner CSS code and dependency control, integrated RequireJS for JavaScript dependency control, and used Grunt to package our library and custom code into single files -one per interface. I reduced our file accesses from about 20 files per page to 3, speeding up response time and drastically reducing our bandwidth.
 				</p>
 				<h4>Full stack</h4>
 				<p>
-				Though my title was front-end developer, I worked on the entire application stack and was involved in design and programming on the back-end as well. Most of the code is in Python using the Flask framework, MongoDB, and the mongoengine package. We used agile development practices and had 100% unit test code coverage. I took turns in production support and helped with system configuration. The application is hosted with NGINX on an Ubuntu server running on Amazon's EC2.
+				Though my title was front-end developer, I worked on the entire application stack and was involved in design and programming on the back-end as well. Most of the code was in Python using the Flask framework, MongoDB, and the mongoengine package. We used agile development practices and had 100% unit test code coverage. I took turns in production support and helped with system configuration.
 				</p>
 			</div>
 
-			<div>
+			<div id="InterSystems">
 				<h3>InterSystems Corporation - Web Programmer</h3>
 				<p class="workDates">June 2010 - February 2013</p>
 				<p>
@@ -62,14 +84,10 @@
 				</p>
 				<h4>Development Projects</h4>
 				<p>
-				Designed and developed InterSystems' video portal using InterSystems' Zen framework, JavaScript, and JQuery. Features AJAX page updates and a back end that communicates with Brightcove video server using REST API calls.
+				Designed and developed InterSystems' video portal using InterSystems' Zen framework, JavaScript, and JQuery. Back-end communicated with Brightcove video server using REST API calls.
 				</p>
 				<p>
 				Built new version of job-finding site based on an existing design. Programmed the site using JQuery, InterSystems' Cach&eacute; database, and the Zen framework.
-				</p>
-				<p>
-				<strong>InterSystems Video Portal</strong> <a href="http://video.intersystems.com">http://video.intersystems.com</a><br/>
-				<strong>InterSystems Community Job Connection</strong> <a href="http://jobconnection.intersystems.com/">http://jobconnection.intersystems.com</a><br/>
 				</p>
 				<h4 id="intern">Intern Mentor</h4>
 				<p>
@@ -80,32 +98,44 @@
 			<h3>InterSystems Corporation - Technical Trainer</h3>
 				<p class="workDates">February 2007 - June 2010</p>
 				<p>
-					With my experience as a teaching TA, I was hired at InterSystems as a Technical Trainer. I taught courses in object-oriented programming, web programming, and system management both in our classroom in Cambridge and at customer sites around the world.
+					Taught courses in object-oriented programming, web programming, and system management both in our classroom in Cambridge and at customer sites around the world.
 				</p>
 				<h4>Zen Programming Course</h4>
 				<p>
-					I built a 3&ndash;day training course based on InterSystem's web programming technology. I developed the entire course including agenda, lecture-slides, and exercises.
+					Built a 3&ndash;day training course based on InterSystem's web programming technology. I developed the entire course including agenda, lecture-slides, and exercises.
 				</p>
 		</div>
 	</div>
-	<h2>Outside Programming</h2>
+	<h2>Side Projects</h2>
 		<div id="outside">
 			<h4>Make It So</h4>
 				<p>
-					I am currently working on a single page web application disguised as a sci-fi adventure game. The back-end is written in JavaScript using Node.js, the Koa framework, and MongoDB. The front-end uses Backbone.js, SASS, and the doT template engine.
+	        For the past few years I've been working on a single-page web application disguised as a sci-fi text adventure.<br/>
+          The back-end uses NodeJS running the Koa framework and MongoDB. The front-end uses Backbone.js and SASS.<br/>
+        </p>
+        <p>
+          Play the work-in-progress demo: <a href="http://hi-scor.es:3000">http://hi-scor.es:3000</a>
 				</p>
 				<p>
-					<strong>Make It So</strong> <a href="https://github.com/trflagg/MakeItSo">https://github.com/trflagg/MakeItSo</a>
-				<p/>
+					<strong>Full source code:</strong> <a href="https://github.com/trflagg/MakeItSo">https://github.com/trflagg/MakeItSo</a><br/>
+          <strong>argie</strong> (decision engine that powers the game): <a href="https://github.com/trflagg/argie">https://github.com/trflagg/argie</a>
+        <p/>
+        <h4>hi-scor.es</h4>
+        <p>
+          Personal website built with HTML and CSS animations.<br/>
+          <a href="http://hi-scor.es">http://hi-scor.es</a><br/>
+					<a href="https://github.com/trflagg/hi-scor.es">https://github.com/trflagg/hi-scor.es</a><br/>
+        </p>
 			<h4>JavaScript games</h4>
 				<p>
-					I participated multiple times in the 48-hour game programming challenge, Ludum Dare. Each game is written in JavaScript and runs directly in the browser. P27 uses SVG to scale to any device size. The other three use HTML5 canvas drawing and various game libraries. Darwin Defenders generates its enemies with a genetic algorithm (which is pretty interesting even though the game ended up being rather boring).
+					I participated multiple times in the 48-hour game programming challenge, Ludum Dare. Each game is written in JavaScript and runs directly in the browser using SVG or HTML canvas.
 				</p>
 				<p>
 					<strong>Tiny World Machine Inc.</strong> <a href="https://github.com/trflagg/TinyCampbell">https://github.com/trflagg/TinyCampbell</a><br/>
 					<strong>Darwin Defenders</strong> <a href="https://github.com/trflagg/DarwinDefenders">https://github.com/trflagg/DarwinDefenders</a><br/>
 					<strong>P27</strong> <a href="https://github.com/trflagg/P27">https://github.com/trflagg/P27</a><br/>
-					<strong>SolidGround</strong> <a href="https://github.com/trflagg/SolidGround">https://github.com/trflagg/SolidGround</a>
+					<strong>SolidGround</strong> <a href="https://github.com/trflagg/SolidGround">https://github.com/trflagg/SolidGround</a><br/>
+          <strong>The Disk of Phaistos</strong> <a href="https://github.com/trflagg/TheDiskOfPhaistos">https://github.com/trflagg/TheDiskOfPhaistos</a>
 				<p/>
 		</div>
 
@@ -121,7 +151,8 @@
 			<h4>University of Florida School of Engineering</h4>
 				<p>
 					PhD student in Computer Science, August 2005 &ndash; December 2006.<br/>
-					While in graduate school, I spent three semesters as a TA for <u>Problem Solving Using Computer Software</u>. Each semester I had 150 students and was responsible for lecturing, writing quizzes, managing grades, and handling office hours.  Graduate courses included: Computer Networks, Programming Language Principles, Formal Languages &amp; Computational Theory, Concurrent Programming, Computer &amp; Network Security<br/>
+          Graduate courses included: Computer Networks, Programming Language Principles, Formal Languages &amp; Computational Theory, Concurrent Programming, Computer &amp; Network Security<br/>
+					Three semesters as a TA for <u>Problem Solving Using Computer Software</u>.<br/>
 					GPA: 3.8<br/>
 				</p>
 		</div>
