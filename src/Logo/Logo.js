@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logoImage from './logotransparent640.png';
 import './Logo.css';
 
-class Logo extends Component {
-  render() {
+function Logo({ width, top, left }) {
+
+      const style = {
+        width: width,
+        top: top,
+        left: left,
+        position: "absolute",
+    }
+
     return (
       <div className="Logo">
-        <img src={logoImage} alt="hiscores" />
+        <img src={logoImage} style={style} alt="hiscores" />
       </div>
     );
-  }
+
 }
 
 export default Logo;
