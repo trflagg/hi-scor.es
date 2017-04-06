@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
-import Logo from '../Logo/Logo';
+import LogoContainer from '../Logo/LogoContainer';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuAvailable: false,
+    };
+    this.boundLogoClicked = this.logoClicked.bind(this);
+  }
+
+  logoClicked (event) {
+    // for performance reasons, only setState the first time
+    if (!this.state.menuAvailable) {
+      this.setState({ menuAvailable: true });
+    }
+  }
+
   render() {
-
-    const height = window.innerHeight;
-    const width = window.innerWidth;
-
-    const logoWidth = Math.min( Math.max(width * 0.35, 336), 448) ;
-    const logoTop = Math.max((height * 0.375 - 200), 0);
-    const logoLeft = width * 0.05;
-
     return (
       <div className="App">
-        <Logo width={logoWidth}
-          top={logoTop}
-          left={logoLeft}
+        <LogoContainer
+          menuAvailable={this.state.menuAvailable}
+          onClick={this.boundLogoClicked}
         />
       </div>
     );
