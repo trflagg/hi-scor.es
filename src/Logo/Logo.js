@@ -13,7 +13,7 @@ function Logo({ width, top, left }) {
 
     return (
       <div className="Logo">
-        <img src={logoImage} style={style} alt="hiscores" />
+        <img src={logoImage} className="pulse" style={style} alt="hiscores" />
       </div>
     );
 
