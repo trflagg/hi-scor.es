@@ -2,7 +2,7 @@ import React from 'react';
 import logoImage from './logotransparent640.png';
 import './Logo.css';
 
-function Logo({ width, top, left, onClick }) {
+function Logo({ width, top, left, pulse, onClick }) {
 
       const style = {
         width: width,
@@ -14,7 +14,7 @@ function Logo({ width, top, left, onClick }) {
     return (
       <div>
         <img src={logoImage}
-          className={"Logo pulse"}
+          className={"Logo " + (pulse ? "pulse" : "")}
           style={style}
           alt="hiscores"
           onClick={onClick}

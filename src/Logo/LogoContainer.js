@@ -9,12 +9,14 @@ class LogoContainer extends Component {
     let logoWidth = 0;
     let logoTop = 0;
     let logoLeft = 0;
+    let pulseLogo = false;
 
     // position of logo depends on menu availability
     if (!this.props.menuAvailable) {
       logoWidth = Math.min( Math.max(width * 0.35, 336), 448) ;
       logoTop = Math.max((height * 0.375 - 200), 0);
       logoLeft = width * 0.05;
+      pulseLogo = true;
     } else {
       logoWidth = 300;
       logoTop = 10;
@@ -25,6 +27,7 @@ class LogoContainer extends Component {
       <Logo width={logoWidth}
         top={logoTop}
         left={logoLeft}
+        pulse={pulseLogo}
         onClick={this.props.onClick}
       />
     );
